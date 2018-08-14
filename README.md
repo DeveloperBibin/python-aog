@@ -1,8 +1,4 @@
 # python-aog
-Easy to use Python client library for actions on google.
-
-aog
-===
 
 A simple and easy to use python client library for Actions on google webhook.
 
