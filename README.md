@@ -87,6 +87,7 @@ Requirements : ```actions.capability.SCREEN_OUTPUT``` you can check the requirem
 ### Basic card
 
 ![sample image](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image4.png?alt=media&token=233e4196-a0a3-4616-af89-df36c30ab1eb)
+
 A basic card displays information that can include the following:
 
 - Image
