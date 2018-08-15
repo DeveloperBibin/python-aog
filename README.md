@@ -5,13 +5,13 @@ A complete demo actions on google project built with aog python library is avail
 
 
 
-##Installation
+## Installation
 
 You can install using ``` pip install aog ``` *or* ``` pip3 install aog```.
 
 
 
-##Code sample
+## Code sample
 
 
 ```python
@@ -49,13 +49,13 @@ def makeFullfillment(req):
 
 ```    
 
-##Simple Responses
+## Simple Responses
 
 ![sample image](https://developers.google.com/actions/images/geeknum-simpleresponse.svg)
 
 Simple responses can appear on audio-only, screen-only, or both surfaces. They take the form of a chat bubble visually, and TTS/SSML sound.
 
-###Sample Code
+### Sample Code
 
 ```python
 # ask method expect a reply from user. after the message mic will be open for user to reply.
@@ -72,7 +72,7 @@ return res
 ```
  
 
-##Rich responses
+## Rich responses
 
 Rich responses can appear on screen-only or audio and screen experiences. They can contain the following components:
 
@@ -84,7 +84,7 @@ Rich responses can appear on screen-only or audio and screen experiences. They c
 
 Requirements : ```actions.capability.SCREEN_OUTPUT``` you can check the requirement using ```conv.has_capability(req,actions.capability.SCREEN_OUTPUT)```
 
-###Basic card
+### Basic card
 
 ![sample image](https://developers.google.com/actions/images/geeknum-card.svg)
 A basic card displays information that can include the following:
@@ -100,7 +100,7 @@ A basic card displays information that can include the following:
 *Required components : formatted text or image.*
 *Optional components : Titile, Sub-title, link button, Border (Image scale)*
 
-###Sample code
+### Sample code
 
 ```python 
 if conv.has_capability(req,'actions.capability.SCREEN_OUTPUT'):  
@@ -112,7 +112,7 @@ if conv.has_capability(req,'actions.capability.SCREEN_OUTPUT'):
 
 
 
-###List
+### List
 
 ![sample image](https://developers.google.com/actions/images/geeknum-list.svg)
 
@@ -123,7 +123,7 @@ The single-select list presents the user with a vertical list of multiple items 
 *Required components : speech,items.*
 *Optional components : titile, description, image_url, image_scale, image_text,key*
 
-###Sample code
+### Sample code
 
 ```python
  url="https://developers.google.com/actions/assistant.png"
@@ -136,12 +136,12 @@ The single-select list presents the user with a vertical list of multiple items 
 ```
 
 
-###Handling a selected item
+### Handling a selected item
 
 Once user select an item, intent with event ```actions_intent_OPTION``` will be invoked. from this event you can get selected item's key using ```key=conv.list_item_selectd(req)``` method.
 
 
-##Carousel
+## Carousel
 
 ![sample image](https://developers.google.com/actions/images/geeknum-carousel.svg)
 
@@ -154,7 +154,7 @@ The carousel scrolls horizontally and allows for selecting one item.
 *Optional components : titile, description, image_url, image_scale, image_text,key*
 
 
-###Sample code
+### Sample code
 
 ```python
  url="https://developers.google.com/actions/assistant.png"
@@ -167,18 +167,18 @@ The carousel scrolls horizontally and allows for selecting one item.
 ```
 
 
-###Handling a selected item
+### Handling a selected item
 
 Once user select an item, intent with event ```actions_intent_OPTION``` will be invoked. from this event you can get selected item's key using ```key=conv.list_item_selectd(req)``` method.
 
 
-##Suggestion Chip
+## Suggestion Chip
 
 ![image sample](https://developers.google.com/actions/images/geeknum-chip.svg)
 
 Use suggestion chips to hint at responses to continue or pivot the conversation.
 
-###Sample code
+### Sample code
 
 ```python
 res=conv.suggestion_chips(speech="Here are some suggestions for you.",suggestions=['suggestion1','suggestion2','suggestion3'])
@@ -188,7 +188,7 @@ res=conv.suggestion_chips(speech="Here are some suggestions for you.",suggestion
 *Required components : speech,suggestions.*
 
 
-##Getting User information
+## Getting User information
 
 You can obtain these values from user.
 
@@ -198,7 +198,7 @@ You can obtain these values from user.
   - Family name
 - Device location (Coordinates)
 
-###Sample code
+### Sample code
 
 ```python
 res=conv.ask_permission(['NAME','DEVICE_PRECISE_LOCATION','DEVICE_COARSE_LOCATION'],context="To get you know better")
@@ -208,11 +208,11 @@ res=conv.ask_permission(['NAME','DEVICE_PRECISE_LOCATION','DEVICE_COARSE_LOCATIO
 *Minimum one permission is required.*
 *context could contain explaination of obtaining permission*
 
-###Handling permission 
+### Handling permission 
 
 User can either accept or reject permission requests. bothways, an intent with event ```actions_intent_PERMISSION``` will be invoked. from this event you can handle the permissions.
 
-###Sample code
+### Sample code
 
 ```python
 if conv.permission_granted(req): #Checking weather permission is granted or not.
@@ -220,11 +220,11 @@ if conv.permission_granted(req): #Checking weather permission is granted or not.
       location=conv.get_userlocation(req) # return type is a dictionary contains {latitude,longitude}
 ``` 
 
-##Date and Time
+## Date and Time
 
 You can obtain a date and time from users by using ```conv.ask_datetime()```. You can specify custom prompts when asking the user for a date and time.
 
-###Sample code
+### Sample code
 
 ```python
 res=conv.ask_datetime(\
