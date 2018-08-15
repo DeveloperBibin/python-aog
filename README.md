@@ -97,7 +97,7 @@ A basic card displays information that can include the following:
 - Link button
 - Border
 
-*Supported on ```actions.capability.SCREEN_OUTPUT```*
+*Supported on ```actions.capability.SCREEN_OUTPUT```*.
 *Required components : formatted text or image.*
 *Optional components : Titile, Sub-title, link button, Border (Image scale)*
 
