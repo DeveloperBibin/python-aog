@@ -267,7 +267,7 @@ You can use ```conv.get_lastseen(req)``` to determine whether the user has inter
 
 You can obtain a unique string id to identify user from conv object using ```conv.get_userid(req)```.
 
-## R
+## More Info
 
 > For more information visit actions on google [documentation](https://developers.google.com/actions/assistant/responses). 
 
