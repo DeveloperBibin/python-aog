@@ -1,4 +1,4 @@
-# python-aog
+# aog
 
 A simple and easy to use python client library for Actions on google webhook.
 A complete demo actions on google project built with aog python library is availble [here](https://github.com/DeveloperBibin/Demo-python-aog).
