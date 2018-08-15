@@ -51,7 +51,7 @@ def makeFullfillment(req):
 
 ## Simple Responses
 
-![sample image](https://developers.google.com/actions/images/geeknum-simpleresponse.svg)
+<image sr="https://developers.google.com/actions/images/geeknum-simpleresponse.svg" width="20%" >
 
 Simple responses can appear on audio-only, screen-only, or both surfaces. They take the form of a chat bubble visually, and TTS/SSML sound.
 
