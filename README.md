@@ -259,15 +259,15 @@ return res
 
 Aftter user responds to confirmation message, and intent with event ``` actions_intent_CONFIRMATION ``` will be invoked. from this event we can obtain user reponse using ```boolValue=conv.get_confirmation(req) ```
 
-### Last seen
+## Last seen
 
 You can use ```conv.get_lastseen(req)``` to determine whether the user has interacted with your Action before. method returns ```None``` if it's a first time user. else last seen time will be returned 
 
-### User Id
+## User Id
 
 You can obtain a unique string id to identify user from conv object using ```conv.get_userid(req)```.
 
-
+## R
 
 > For more information visit actions on google [documentation](https://developers.google.com/actions/assistant/responses). 
 
