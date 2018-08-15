@@ -51,7 +51,7 @@ def makeFullfillment(req):
 
 ## Simple Responses
 
-![sample image](https://developers.google.com/actions/images/geeknum-simpleresponse.svg) {:height="50%" width="50%"}
+![sample image](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image5.png?alt=media&token=13426d26-95d0-45f9-9917-22aadb8488c3) 
 
 Simple responses can appear on audio-only, screen-only, or both surfaces. They take the form of a chat bubble visually, and TTS/SSML sound.
 
@@ -86,7 +86,7 @@ Requirements : ```actions.capability.SCREEN_OUTPUT``` you can check the requirem
 
 ### Basic card
 
-![sample image](https://developers.google.com/actions/images/geeknum-card.svg)
+![sample image](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image4.png?alt=media&token=233e4196-a0a3-4616-af89-df36c30ab1eb)
 A basic card displays information that can include the following:
 
 - Image
@@ -114,11 +114,11 @@ if conv.has_capability(req,'actions.capability.SCREEN_OUTPUT'):
 
 ### List
 
-![sample image](https://developers.google.com/actions/images/geeknum-list.svg)
+![sample image](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image3.png?alt=media&token=24683e37-da6f-476a-b715-73aac202a346)
 
 The single-select list presents the user with a vertical list of multiple items and allows the user to select a single one. Selecting an item from the list generates a user query (chat bubble) containing the title of the list item.
 
-*Minimum 2 items are required.
+*Minimum 2 items are required.*
 *Supported on ```actions.capability.SCREEN_OUTPUT```*
 *Required components : speech,items.*
 *Optional components : titile, description, image_url, image_scale, image_text,key*
@@ -143,12 +143,12 @@ Once user select an item, intent with event ```actions_intent_OPTION``` will be 
 
 ## Carousel
 
-![sample image](https://developers.google.com/actions/images/geeknum-carousel.svg)
+![sample image](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image2.png?alt=media&token=8a4e5b8a-d169-401b-b876-d4335f9b04ce)
 
 The carousel scrolls horizontally and allows for selecting one item.
 
 
-*Minimum 2 items are required.
+*Minimum 2 items are required.*
 *Supported on ```actions.capability.SCREEN_OUTPUT```*
 *Required components : speech,items.*
 *Optional components : titile, description, image_url, image_scale, image_text,key*
@@ -174,7 +174,7 @@ Once user select an item, intent with event ```actions_intent_OPTION``` will be 
 
 ## Suggestion Chip
 
-![image sample](https://developers.google.com/actions/images/geeknum-chip.svg)
+![image sample](https://firebasestorage.googleapis.com/v0/b/kochi-metro-f6942.appspot.com/o/image1.png?alt=media&token=cac5908f-47d1-4824-90cd-376b2de52fdd)
 
 Use suggestion chips to hint at responses to continue or pivot the conversation.
 
@@ -188,7 +188,7 @@ res=conv.suggestion_chips(speech="Here are some suggestions for you.",suggestion
 *Required components : speech,suggestions.*
 
 
-## Getting User information
+## Helper Intents for taking information from user
 
 You can obtain these values from user.
 
@@ -197,6 +197,10 @@ You can obtain these values from user.
   - Given name
   - Family name
 - Device location (Coordinates)
+- Confirmation ( Generic confirmation from the user (yes/no question) )
+- Date Time
+- Last seen ( lastSeen property to determine whether the user has interacted with your Action before.)
+- User id ( An unique string identifier )
 
 ### Sample code
 
@@ -206,7 +210,7 @@ res=conv.ask_permission(['NAME','DEVICE_PRECISE_LOCATION','DEVICE_COARSE_LOCATIO
 ```
 
 *Minimum one permission is required.*
-*context could contain explaination of obtaining permission*
+*context could contain explaination of obtaining permission.*
 
 ### Handling permission 
 
@@ -235,13 +239,37 @@ res=conv.ask_datetime(\
     return res
 ```
 
-###Handling Date and Time
+### Handling Date and Time
 
 After user responds to date and time intent, an intent with event ```actions_intent_DATETIME``` will be invoked. from this intent you can handle the result using conv.get_datetime(req).
 ```python
 date,time=conv.get_datetime(req) #date dictionary= {'year','date','month'} ,time dictionary ={hours and time} 
 ```
 
+## Confirmation
+
+You can ask a generic confirmation from the user (yes/no question) and get the resulting answer. The grammar for "yes" and "no" naturally expands to things like "Yea" or "Nope", making it usable in many situations.
+
+```python
+res=conv.ask_confirmation("Do you like python ?")
+return res
+```
+
+### Handling Confirmation
+
+Aftter user responds to confirmation message, and intent with event ``` actions_intent_CONFIRMATION ``` will be invoked. from this event we can obtain user reponse using ```boolValue=conv.get_confirmation(req) ```
+
+### Last seen
+
+You can use ```conv.get_lastseen(req)``` to determine whether the user has interacted with your Action before. method returns ```None``` if it's a first time user. else last seen time will be returned 
+
+### User Id
+
+You can obtain a unique string id to identify user from conv object using ```conv.get_userid(req)```.
+
+
+
+> For more information visit actions on google [documentation](https://developers.google.com/actions/assistant/responses). 
 
 
     
