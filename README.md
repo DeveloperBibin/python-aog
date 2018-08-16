@@ -70,7 +70,15 @@ res=conv.close("Good bye")
 return res
 
 ```
- 
+
+
+## Extracting parameters (Entities) from conversation
+
+You can access the parameter obtained by from user's.
+
+```python
+color=get_parameters(req,'color')
+``` 
 
 ## Rich responses
 
